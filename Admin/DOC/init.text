@@ -1,0 +1,34 @@
+int pour faire include simple et plus dénamique notre site et aussi pour crier de route /chemain  
+pour faore les relations entre les tables 
+ALTER TABLE produits
+ADD CONSTRAINT Vendeur // sa va etre le nom de chanp dans la tabele 
+FOREIGN KEY(Admin_ID )
+REFERENCES utilisateurs(Id_utilisateur)
+ON UPDATE CASCADE
+ON DELETE CASCADE
+
+// relation entre table catégoreis et produits
+ALTER TABLE produits
+ADD CONSTRAINT vent_Categories 
+FOREIGN KEY(Categories_ID )
+REFERENCES categories(ID)
+ON UPDATE CASCADE
+ON DELETE CASCADE
+========================================================================================================== 
+rqt sql pour afficher dans php my admin les nom degatgeries de produits
+SELECT produits.*,categories.Nom FROM produits
+INNER JOIN categories WHERE 
+categories.ID = produits.Categories_ID
+WHERE pour une JOIN
+on pour pluseur JOIN
+//
+SELECT produits.*,categories.Nom as categories FROM produits
+INNER JOIN categories ON 
+categories.ID = produits.Categories_ID
+//================================================================================================
+
+SELECT produits.*,categories.Nom as Categorie ,utilisateurs.Nom as Vendeur FROM produits
+INNER JOIN categories ON 
+categories.ID = produits.Categories_ID
+INNER JOIN utilisateurs ON
+utilisateurs.Id_utilisateur = produits.Admin_ID
